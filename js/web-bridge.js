@@ -8,7 +8,8 @@
  *   storage   -> localStorage
  *   locale    -> navigator.language
  *   clipboard -> navigator.clipboard (with a legacy fallback)
- *   share     -> Web Share API, else a downloaded .txt
+ *   share     -> Web Share API, else a downloaded .txt; an exported JSON
+ *                document (Settings -> Export chats) downloads as .json
  *   HTTP      -> fetch() with a streaming body reader, feeding the same
  *                window.__saathiHttp* callbacks the native engine used
  *
@@ -63,25 +64,48 @@
     }
   }
 
-  /* ---------------- share ---------------- */
-  function shareText(text) {
-    text = text == null ? '' : String(text);
-    if (navigator.share) {
-      navigator.share({ title: 'Saathi', text: text }).catch(function () { });
-      return;
-    }
-    // Fallback: hand the conversation over as a file download.
+  /* ---------------- share / export ---------------- */
+  function downloadFile(text, filename, mime) {
     try {
-      var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      var blob = new Blob([text], { type: mime });
       var url = URL.createObjectURL(blob);
       var a = document.createElement('a');
       a.href = url;
-      a.download = 'saathi-chat.txt';
+      a.download = filename;
       document.body.appendChild(a);
       a.click();
       a.remove();
       setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
-    } catch (e) { }
+      return true;
+    } catch (e) { return false; }
+  }
+
+  /* Settings -> Export chats hands the bridge a JSON document. On Android that goes
+     to the system share sheet; in a browser the natural destination is a file, so
+     the payload is detected and saved as .json instead of being shared as text. */
+  function isExportPayload(text) {
+    if (text.charAt(0) !== '{') return false;
+    try {
+      var o = JSON.parse(text);
+      return !!(o && o.app === 'Saathi' && o.schema &&
+        Object.prototype.toString.call(o.chats) === '[object Array]');
+    } catch (e) { return false; }
+  }
+
+  function shareText(text) {
+    text = text == null ? '' : String(text);
+
+    if (isExportPayload(text)) {
+      var stamp = new Date().toISOString().slice(0, 10);
+      if (downloadFile(text, 'saathi-chats-' + stamp + '.json', 'application/json;charset=utf-8')) return;
+    }
+
+    if (navigator.share) {
+      navigator.share({ title: 'Saathi', text: text }).catch(function () { });
+      return;
+    }
+    // Fallback: hand the conversation over as a text file.
+    downloadFile(text, 'saathi-chat.txt', 'text/plain;charset=utf-8');
   }
 
   /* ---------------- toast (kept for parity; the UI has its own) ---------------- */

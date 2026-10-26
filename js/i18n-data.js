@@ -73,7 +73,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ফাইল সংলগ্ন কৰক",
     "chat.attachUnsupported": "কেৱল ছবি আৰু টেক্সট ফাইলহে সংলগ্ন কৰিব পাৰি",
-    "chat.visionHint": "এই মডেলে ছবি গ্ৰহণ নকৰিবও পাৰে"
+    "chat.visionHint": "এই মডেলে ছবি গ্ৰহণ নকৰিবও পাৰে",
+    "nav.export": "চাটসমূহ এক্সপ'ৰ্ট কৰক",
+    "nav.loadMore": "আৰু দেখুৱাওক",
+    "export.title": "চাটসমূহ এক্সপ'ৰ্ট কৰক",
+    "export.hint": "এক্সপ'ৰ্ট কৰিবলৈ চাটসমূহ বাছনি কৰক। সেইবোৰ JSON ফাইল হিচাপে সংৰক্ষণ কৰা হয়।",
+    "export.action": "এক্সপ'ৰ্ট",
+    "export.empty": "কমেও এটা চাট বাছনি কৰক"
   },
   "bn": {
     "nav.newChat": "নতুন চ্যাট",
@@ -147,7 +153,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ফাইল যুক্ত করুন",
     "chat.attachUnsupported": "শুধুমাত্র ছবি এবং টেক্সট ফাইল যুক্ত করা যাবে",
-    "chat.visionHint": "এই মডেলটি ছবি গ্রহণ নাও করতে পারে"
+    "chat.visionHint": "এই মডেলটি ছবি গ্রহণ নাও করতে পারে",
+    "nav.export": "চ্যাট এক্সপোর্ট করুন",
+    "nav.loadMore": "আরও দেখুন",
+    "export.title": "চ্যাট এক্সপোর্ট করুন",
+    "export.hint": "এক্সপোর্ট করার জন্য চ্যাটগুলো বেছে নিন। এগুলো একটি JSON ফাইল হিসেবে সেভ করা হয়।",
+    "export.action": "এক্সপোর্ট করুন",
+    "export.empty": "অন্তত একটি চ্যাট বেছে নিন"
   },
   "gu": {
     "nav.newChat": "નવી ચેટ",
@@ -221,7 +233,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ફાઇલ જોડો",
     "chat.attachUnsupported": "ફક્ત ઇમેજ અને ટેક્સ્ટ ફાઇલો જોડી શકાય છે",
-    "chat.visionHint": "આ મોડેલ કદાચ ઇમેજ સ્વીકારશે નહીં"
+    "chat.visionHint": "આ મોડેલ કદાચ ઇમેજ સ્વીકારશે નહીં",
+    "nav.export": "ચેટ્સ એક્સપોર્ટ કરો",
+    "nav.loadMore": "વધુ લોડ કરો",
+    "export.title": "ચેટ્સ એક્સપોર્ટ કરો",
+    "export.hint": "એક્સપોર્ટ કરવા માટે ચેટ્સ પસંદ કરો. તેઓ JSON ફાઇલ તરીકે સેવ થાય છે.",
+    "export.action": "એક્સપોર્ટ",
+    "export.empty": "ઓછામાં ઓછી એક ચેટ પસંદ કરો"
   },
   "hi": {
     "nav.newChat": "नया चैट",
@@ -295,7 +313,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "फ़ाइल अटैच करें",
     "chat.attachUnsupported": "केवल इमेज और टेक्स्ट फ़ाइलें अटैच की जा सकती हैं",
-    "chat.visionHint": "यह मॉडल इमेज स्वीकार नहीं कर सकता है"
+    "chat.visionHint": "यह मॉडल इमेज स्वीकार नहीं कर सकता है",
+    "nav.export": "चैट एक्सपोर्ट करें",
+    "nav.loadMore": "और लोड करें",
+    "export.title": "चैट एक्सपोर्ट करें",
+    "export.hint": "एक्सपोर्ट करने के लिए चैट चुनें। वे JSON फ़ाइल के रूप में सेव होते हैं।",
+    "export.action": "एक्सपोर्ट करें",
+    "export.empty": "कम से कम एक चैट चुनें"
   },
   "kn": {
     "nav.newChat": "ಹೊಸ ಚಾಟ್",
@@ -369,7 +393,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ಫೈಲ್ ಲಗತ್ತಿಸಿ",
     "chat.attachUnsupported": "ಚಿತ್ರಗಳು ಮತ್ತು ಪಠ್ಯ ಫೈಲ್‌ಗಳನ್ನು ಮಾತ್ರ ಲಗತ್ತಿಸಬಹುದು",
-    "chat.visionHint": "ಈ ಮಾದರಿಯು ಚಿತ್ರಗಳನ್ನು ಸ್ವೀಕರಿಸದಿರಬಹುದು"
+    "chat.visionHint": "ಈ ಮಾದರಿಯು ಚಿತ್ರಗಳನ್ನು ಸ್ವೀಕರಿಸದಿರಬಹುದು",
+    "nav.export": "ಚಾಟ್‌ಗಳನ್ನು ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿ",
+    "nav.loadMore": "ಇನ್ನಷ್ಟು ಲೋಡ್ ಮಾಡಿ",
+    "export.title": "ಚಾಟ್‌ಗಳನ್ನು ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿ",
+    "export.hint": "ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಲು ಚಾಟ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಅವುಗಳನ್ನು JSON ಫೈಲ್ ಆಗಿ ಸೇವ್ ಮಾಡಲಾಗುತ್ತದೆ.",
+    "export.action": "ಎಕ್ಸ್‌ಪೋರ್ಟ್",
+    "export.empty": "ಕನಿಷ್ಠ ಒಂದು ಚಾಟ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ"
   },
   "ml": {
     "nav.newChat": "പുതിയ ചാറ്റ്",
@@ -443,7 +473,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ഫയൽ അറ്റാച്ച് ചെയ്യുക",
     "chat.attachUnsupported": "ചിത്രങ്ങളും ടെക്സ്റ്റ് ഫയലുകളും മാത്രമേ അറ്റാച്ച് ചെയ്യാൻ കഴിയൂ",
-    "chat.visionHint": "ഈ മോഡൽ ചിത്രങ്ങൾ സ്വീകരിച്ചേക്കില്ല"
+    "chat.visionHint": "ഈ മോഡൽ ചിത്രങ്ങൾ സ്വീകരിച്ചേക്കില്ല",
+    "nav.export": "ചാറ്റുകൾ എക്സ്പോർട്ട് ചെയ്യുക",
+    "nav.loadMore": "കൂടുതൽ ലോഡ് ചെയ്യുക",
+    "export.title": "ചാറ്റുകൾ എക്സ്പോർട്ട് ചെയ്യുക",
+    "export.hint": "എക്സ്പോർട്ട് ചെയ്യാൻ ചാറ്റുകൾ തിരഞ്ഞെടുക്കുക. അവ ഒരു JSON ഫയലായി സേവ് ചെയ്യപ്പെടും.",
+    "export.action": "എക്സ്പോർട്ട് ചെയ്യുക",
+    "export.empty": "കുറഞ്ഞത് ഒരു ചാറ്റെങ്കിലും തിരഞ്ഞെടുക്കുക"
   },
   "mr": {
     "nav.newChat": "नवीन चॅट",
@@ -517,7 +553,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "फाईल जोडा",
     "chat.attachUnsupported": "फक्त इमेजेस आणि टेक्स्ट फाईल्स जोडता येतील",
-    "chat.visionHint": "हे मॉडेल इमेजेस स्वीकारणार नाहीही"
+    "chat.visionHint": "हे मॉडेल इमेजेस स्वीकारणार नाहीही",
+    "nav.export": "चॅट्स एक्सपोर्ट करा",
+    "nav.loadMore": "आणखी लोड करा",
+    "export.title": "चॅट्स एक्सपोर्ट करा",
+    "export.hint": "एक्सपोर्ट करण्यासाठी चॅट्स निवडा. ते JSON फाईल म्हणून सेव्ह केले जातात.",
+    "export.action": "एक्सपोर्ट",
+    "export.empty": "किमान एक चॅट निवडा"
   },
   "ne": {
     "nav.newChat": "नयाँ च्याट",
@@ -591,7 +633,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "फाइल संलग्न गर्नुहोस्",
     "chat.attachUnsupported": "तस्बिर र टेक्स्ट फाइलहरू मात्र संलग्न गर्न सकिन्छ",
-    "chat.visionHint": "यस मोडलले तस्बिरहरू स्वीकार नगर्न सक्छ"
+    "chat.visionHint": "यस मोडलले तस्बिरहरू स्वीकार नगर्न सक्छ",
+    "nav.export": "च्याटहरू एक्सपोर्ट गर्नुहोस्",
+    "nav.loadMore": "थप लोड गर्नुहोस्",
+    "export.title": "च्याटहरू एक्सपोर्ट गर्नुहोस्",
+    "export.hint": "एक्सपोर्ट गर्न चाहिने च्याटहरू छान्नुहोस्। यिनीहरू JSON फाइलको रूपमा सेभ हुन्छन्।",
+    "export.action": "एक्सपोर्ट",
+    "export.empty": "कम्तीमा एउटा च्याट छान्नुहोस्"
   },
   "or": {
     "nav.newChat": "ନୂଆ ଚାଟ୍",
@@ -665,7 +713,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ଫାଇଲ୍ ଯୋଡ଼ନ୍ତୁ",
     "chat.attachUnsupported": "କେବଳ ଛବି ଏବଂ ଟେକ୍ସଟ୍ ଫାଇଲ୍ ଯୋଡ଼ାଯାଇପାରିବ",
-    "chat.visionHint": "ଏହି ମଡେଲ୍ ହୁଏତ ଛବି ଗ୍ରହଣ କରିନପାରେ"
+    "chat.visionHint": "ଏହି ମଡେଲ୍ ହୁଏତ ଛବି ଗ୍ରହଣ କରିନପାରେ",
+    "nav.export": "ଚାଟ୍ ଏକ୍ସପୋର୍ଟ କରନ୍ତୁ",
+    "nav.loadMore": "ଅଧିକ ଲୋଡ୍ କରନ୍ତୁ",
+    "export.title": "ଚାଟ୍ ଏକ୍ସପୋର୍ଟ କରନ୍ତୁ",
+    "export.hint": "ଏକ୍ସପୋର୍ଟ କରିବା ପାଇଁ ଚାଟ୍ ବାଛନ୍ତୁ। ସେଗୁଡିକ ଏକ JSON ଫାଇଲ୍ ଭାବରେ ସେଭ୍ ହୋଇଥାଏ।",
+    "export.action": "ଏକ୍ସପୋର୍ଟ",
+    "export.empty": "ଅତିକମରେ ଗୋଟିଏ ଚାଟ୍ ବାଛନ୍ତୁ"
   },
   "pa": {
     "nav.newChat": "ਨਵੀਂ ਚੈਟ",
@@ -739,7 +793,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ਫਾਈਲ ਲਗਾਓ",
     "chat.attachUnsupported": "ਸਿਰਫ਼ ਤਸਵੀਰਾਂ ਅਤੇ ਟੈਕਸਟ ਫਾਈਲਾਂ ਹੀ ਲਗਾਈਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ",
-    "chat.visionHint": "ਇਹ ਮਾਡਲ ਸ਼ਾਇਦ ਤਸਵੀਰਾਂ ਸਵੀਕਾਰ ਨਾ ਕਰੇ"
+    "chat.visionHint": "ਇਹ ਮਾਡਲ ਸ਼ਾਇਦ ਤਸਵੀਰਾਂ ਸਵੀਕਾਰ ਨਾ ਕਰੇ",
+    "nav.export": "ਚੈਟਸ ਐਕਸਪੋਰਟ ਕਰੋ",
+    "nav.loadMore": "ਹੋਰ ਲੋਡ ਕਰੋ",
+    "export.title": "ਚੈਟਸ ਐਕਸਪੋਰਟ ਕਰੋ",
+    "export.hint": "ਐਕਸਪੋਰਟ ਕਰਨ ਲਈ ਚੈਟਸ ਚੁਣੋ। ਇਹ JSON ਫਾਈਲ ਵਜੋਂ ਸੇਵ ਹੁੰਦੀਆਂ ਹਨ।",
+    "export.action": "ਐਕਸਪੋਰਟ",
+    "export.empty": "ਘੱਟੋ-ਘੱਟ ਇੱਕ ਚੈਟ ਚੁਣੋ"
   },
   "sa": {
     "nav.newChat": "नूतनचर्चा",
@@ -813,7 +873,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "सञ्चिकां योजयतु",
     "chat.attachUnsupported": "केवलं चित्राणि पाठ्यसञ्चिकाः च योजयितुं शक्यन्ते",
-    "chat.visionHint": "एतत् प्रतिरूपं चित्राणि न स्वीकुर्यात्"
+    "chat.visionHint": "एतत् प्रतिरूपं चित्राणि न स्वीकुर्यात्",
+    "nav.export": "चैट्-निर्यातम्",
+    "nav.loadMore": "अधिकं भारयतु",
+    "export.title": "चैट्-निर्यातम्",
+    "export.hint": "निर्यातार्थं चैट्-चयनं करोतु। ते JSON-सञ्चयरूपेण रक्षिताः भवन्ति।",
+    "export.action": "निर्यातम्",
+    "export.empty": "न्यूनातिन्यूनम् एकं चैट् चिनोतु।"
   },
   "ta": {
     "nav.newChat": "புதிய உரையாடல்",
@@ -887,7 +953,13 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "கோப்பை இணைக்கவும்",
     "chat.attachUnsupported": "படங்கள் மற்றும் உரை கோப்புகளை மட்டுமே இணைக்க முடியும்",
-    "chat.visionHint": "இந்த மாடல் படங்களை ஏற்காமல் இருக்கலாம்"
+    "chat.visionHint": "இந்த மாடல் படங்களை ஏற்காமல் இருக்கலாம்",
+    "nav.export": "சாட்களை எக்ஸ்போர்ட் செய்யவும்",
+    "nav.loadMore": "மேலும் ஏற்றவும்",
+    "export.title": "சாட்களை எக்ஸ்போர்ட் செய்யவும்",
+    "export.hint": "எக்ஸ்போர்ட் செய்ய சாட்களைத் தேர்ந்தெடுக்கவும். அவை JSON ஃபைலாக சேவ் செய்யப்படும்.",
+    "export.action": "எக்ஸ்போர்ட்",
+    "export.empty": "குறைந்தது ஒரு சாட் தேர்ந்தெடுக்கவும்"
   },
   "te": {
     "nav.newChat": "కొత్త చాట్",
@@ -961,6 +1033,12 @@ window.SAATHI_I18N_EXTRA = {
     "about.madeBy": "Made by Suryanarayan Panda",
     "chat.attach": "ఫైల్‌ను అటాచ్ చేయండి",
     "chat.attachUnsupported": "చిత్రాలు మరియు టెక్స్ట్ ఫైల్‌లను మాత్రమే అటాచ్ చేయవచ్చు",
-    "chat.visionHint": "ఈ మోడల్ చిత్రాలను అంగీకరించకపోవచ్చు"
+    "chat.visionHint": "ఈ మోడల్ చిత్రాలను అంగీకరించకపోవచ్చు",
+    "nav.export": "చాట్‌లను ఎగుమతి చేయండి",
+    "nav.loadMore": "మరిన్ని లోడ్ చేయండి",
+    "export.title": "చాట్‌లను ఎగుమతి చేయండి",
+    "export.hint": "ఎగుమతి చేయడానికి చాట్‌లను ఎంచుకోండి. అవి JSON ఫైల్‌గా సేవ్ అవుతాయి.",
+    "export.action": "ఎగుమతి చేయండి",
+    "export.empty": "కనీసం ఒక చాట్‌నైనా ఎంచుకోండి"
   }
 };

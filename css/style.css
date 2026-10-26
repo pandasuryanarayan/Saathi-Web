@@ -356,6 +356,20 @@ svg{display:block}
   animation:name-in .95s var(--ease) .9s both}
 @keyframes name-in{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
 
+/* ---------- Export / load more ---------- */
+.export-row{cursor:pointer}
+.checkbox{-webkit-appearance:none;appearance:none;width:22px;height:22px;flex:none;border-radius:7px;
+  border:2px solid var(--line-2);background:transparent;display:grid;place-items:center;margin:0;
+  transition:background .15s ease,border-color .15s ease}
+.checkbox:checked{background:var(--accent);border-color:var(--accent)}
+.checkbox:checked::after{content:"";width:11px;height:6px;border-left:2.5px solid var(--accent-ink);
+  border-bottom:2.5px solid var(--accent-ink);transform:rotate(-45deg) translate(1px,-1px)}
+.load-more{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;
+  background:transparent;color:var(--accent);font-size:13.5px;font-weight:600;padding:14px 12px;
+  border-radius:12px;transition:background .15s ease}
+.load-more:active{background:var(--surface-2)}
+.load-more .load-ico{display:inline-flex}
+
 /* ---------- Motion / scrollbars ---------- */
 .messages::-webkit-scrollbar,.overlay-body::-webkit-scrollbar,.conv-list::-webkit-scrollbar,.sheet::-webkit-scrollbar{
   width:8px;height:8px}

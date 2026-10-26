@@ -33,6 +33,19 @@
     s.innerHTML = ICON(name, size || 20);
     return s;
   }
+  function loadMoreRow(onClick) {
+    var b = mk('button', 'load-more');
+    b.appendChild(icEl('refresh', 16, 'load-ico'));
+    b.appendChild(mk('span', null, t('nav.loadMore')));
+    b.addEventListener('click', onClick);
+    return b;
+  }
+  function fmtDate(ts) {
+    if (!ts) return '';
+    try {
+      return new Date(ts).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch (e) { return ''; }
+  }
   function actBtn(iconName, label, extra) {
     var b = mk('button', 'act' + (extra ? ' ' + extra : ''));
     b.appendChild(icEl(iconName, 15, 'act-ico'));
@@ -86,7 +99,8 @@
     streaming: false,
     activeCall: null,
     attachments: [],
-    sysLocale: 'en'
+    sysLocale: 'en',
+    drawerLimit: 10
   };
 
   var ACCENTS = ['#0B6B5B', '#1A73E8', '#7C4DFF', '#D81B60', '#E8710A', '#00897B', '#5D4037', '#455A64'];
@@ -188,6 +202,7 @@
   function saveSettings() { writeStore('settings', state.settings); }
 
   /* ---------------- drawer ---------------- */
+  var DRAWER_PAGE = 10;
   function renderDrawer() {
     var list = $('convList');
     list.innerHTML = '';
@@ -195,7 +210,9 @@
       list.appendChild(mk('div', 'hint', t('chat.emptyTitle')));
       return;
     }
-    state.convs.slice().sort(function (a, b) { return b.updatedAt - a.updatedAt; }).forEach(function (c) {
+    var sorted = state.convs.slice().sort(function (a, b) { return b.updatedAt - a.updatedAt; });
+    var shown = sorted.slice(0, state.drawerLimit);
+    shown.forEach(function (c) {
       var item = mk('div', 'conv-item' + (c.id === state.currentId ? ' active' : ''));
       var title = mk('div', 'ci-title', c.title || t('nav.newChat'));
       var more = mk('button', 'ci-more');
@@ -211,6 +228,12 @@
       });
       list.appendChild(item);
     });
+    if (sorted.length > shown.length) {
+      list.appendChild(loadMoreRow(function () {
+        state.drawerLimit += DRAWER_PAGE;
+        renderDrawer();
+      }));
+    }
   }
   function openDrawer() { $('drawer').classList.add('open'); $('scrim').classList.add('show'); }
   function closeDrawer() { $('drawer').classList.remove('open'); $('scrim').classList.remove('show'); }
@@ -268,6 +291,97 @@
       if (state.currentId === c.id) state.currentId = state.convs.length ? state.convs[0].id : null;
       saveConvs(); renderAll();
     });
+  }
+
+  /* ---------------- export ---------------- */
+  function exportPayload(chats) {
+    return {
+      app: 'Saathi',
+      schema: 1,
+      exportedAt: new Date().toISOString(),
+      chatCount: chats.length,
+      chats: chats.map(function (c) {
+        var path = activePath(c).filter(function (n) { return n.role !== 'system'; });
+        return {
+          id: c.id,
+          title: c.title || '',
+          createdAt: c.createdAt || null,
+          updatedAt: c.updatedAt || null,
+          providerId: c.providerId || null,
+          model: c.model || null,
+          systemPrompt: c.systemPrompt || '',
+          messages: path.map(function (n) {
+            var m = { role: n.role, content: n.content || '', ts: n.ts || null };
+            if (n.model) m.model = n.model;
+            if (n.attachments && n.attachments.length) {
+              m.attachments = n.attachments.map(function (a) {
+                var o = { kind: a.kind, name: a.name || '', mime: a.mime || '' };
+                if (a.size != null) o.size = a.size;
+                if (a.kind === 'text' && typeof a.text === 'string') o.text = a.text;
+                return o;
+              });
+            }
+            return m;
+          })
+        };
+      })
+    };
+  }
+
+  var EXPORT_PAGE = 10;
+  function openExportPage() {
+    closeDrawer();
+    var selected = {};
+    var limit = EXPORT_PAGE;
+
+    openEditor(t('export.title'), function (body) {
+      body.appendChild(mk('div', 'hint', t('export.hint')));
+      var card = mk('div', 'card');
+      body.appendChild(card);
+
+      function newestFirst() {
+        return state.convs.slice().sort(function (a, b) { return b.updatedAt - a.updatedAt; });
+      }
+      function renderList() {
+        card.innerHTML = '';
+        var all = newestFirst();
+        var shown = all.slice(0, limit);
+        shown.forEach(function (c) {
+          var row = mk('label', 'row export-row');
+          var cb = mk('input');
+          cb.type = 'checkbox';
+          cb.className = 'checkbox';
+          cb.checked = !!selected[c.id];
+          cb.addEventListener('change', function () {
+            if (cb.checked) selected[c.id] = true; else delete selected[c.id];
+          });
+          row.appendChild(cb);
+          var main = mk('div', 'r-main');
+          main.appendChild(mk('div', 'r-title', c.title || t('nav.newChat')));
+          var d = fmtDate(c.updatedAt);
+          if (d) main.appendChild(mk('div', 'r-sub', d));
+          row.appendChild(main);
+          card.appendChild(row);
+        });
+        if (all.length > shown.length) {
+          card.appendChild(loadMoreRow(function () {
+            limit += EXPORT_PAGE;
+            renderList();
+          }));
+        }
+      }
+      renderList();
+
+      return function () {
+        var ids = Object.keys(selected);
+        if (!ids.length) { toast(t('export.empty')); return false; }
+        var picked = state.convs.filter(function (c) { return selected[c.id]; });
+        picked.sort(function (a, b) { return b.updatedAt - a.updatedAt; });
+        var json = JSON.stringify(exportPayload(picked), null, 2);
+        if (window.Android && window.Android.shareText) window.Android.shareText(json);
+        return true;
+      };
+    }, t('export.action'));
   }
 
   /* ---------------- message rendering ---------------- */
@@ -677,7 +791,7 @@
   }
 
   /* ---------------- generic editor overlay ---------------- */
-  function openEditor(title, build) {
+  function openEditor(title, build, submitLabel) {
     var body = $('editorBody');
     body.innerHTML = '';
     $('editorTitle').textContent = title;
@@ -685,8 +799,11 @@
     var row = mk('div', 'btn-row');
     var cancel = mk('button', 'btn', t('common.cancel'));
     cancel.addEventListener('click', closeEditor);
-    var save = mk('button', 'btn btn-primary', t('common.save'));
-    save.addEventListener('click', function () { if (submit) submit(); closeEditor(); });
+    var save = mk('button', 'btn btn-primary', submitLabel || t('common.save'));
+    save.addEventListener('click', function () {
+      var ok = submit ? submit() : true;
+      if (ok !== false) closeEditor();
+    });
     row.appendChild(cancel); row.appendChild(save);
     body.appendChild(row);
     openOverlay('editorOverlay');
@@ -1082,6 +1199,7 @@
       $('input').focus();
     });
     $('openSettings').addEventListener('click', openSettings);
+    $('openExport').addEventListener('click', openExportPage);
     $('settingsBack').addEventListener('click', closeSettings);
     $('editorBack').addEventListener('click', closeEditor);
     $('modelChip').addEventListener('click', openModelsPage);
