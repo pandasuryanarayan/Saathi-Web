@@ -32,7 +32,7 @@ API key, and (optionally) press **Fetch models**.
 
 > Open it over `http://localhost` or `https://`, not by double-clicking the
 > file. A `file://` page has an opaque origin, which breaks clipboard access and
-> some providers' CORS checks. `./run.sh` starts the local server for you.
+> some providers' CORS checks.
 
 To host it, just upload the whole folder to any static host (GitHub Pages,
 Netlify, Cloudflare Pages, S3, an nginx directory — anything that serves files).
@@ -171,7 +171,6 @@ js/providers.js     provider catalogue, request builders, SSE parsers
 js/tree.js          conversation-tree logic
 js/web-bridge.js    the browser replacement for the native bridge  (new)
 js/app.js           app core: state, rendering, settings, export, streaming
-run.sh              starts a local server
 ```
 
 The rest of `js/` and the whole of `css/style.css` (above the responsive
